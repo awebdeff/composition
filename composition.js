@@ -28,6 +28,13 @@ function canNodejs({ name }) {
   }
 }
 
+function canPython({ name }) {
+  return {
+    python: () => console.log(`${name} is programming on Python...`)
+
+  }
+}
+
 function createFrontend(name) {
   const programmer = createProgrammer(name)
 
@@ -56,6 +63,17 @@ function createFullstack(name) {
   }
 }
 
+function createMegaproger(name) {
+  const programmer = createProgrammer(name)
+
+  return {
+    ...programmer,
+    ...canAngular(programmer),
+    ...canNodejs(programmer),
+    ...canPython(programmer)
+  }
+}
+
 const programmer = createProgrammer('Programmer')
 programmer.code()
 
@@ -71,3 +89,9 @@ const fullstack = createFullstack('John')
 fullstack.code()
 fullstack.angular()
 fullstack.nodejs()
+
+const megaproger = createMegaproger('Vasilisk')
+megaproger.code()
+megaproger.angular()
+megaproger.nodejs()
+megaproger.python()
