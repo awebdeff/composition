@@ -1,3 +1,6 @@
+// функции для создания объектов
+
+// основной объект
 function createProgrammer(name) {
   const programmer = { name }
 
@@ -7,6 +10,7 @@ function createProgrammer(name) {
   }
 }
 
+// основной метод
 function canCode({ name }) {
   return {
     code: () => console.log(`${name} is coding...`)
@@ -14,6 +18,7 @@ function canCode({ name }) {
   }
 }
 
+// функции, расширяющие методы основного объекта
 function canAngular({ name }) {
   return {
     angular: () => console.log(`${name} is creating Angular app..`)
@@ -43,6 +48,7 @@ function canReactAndVue({ name }) {
   }
 }
 
+// расширение базового объекта с помощью доп. методов
 function createFrontend(name) {
   const programmer = createProgrammer(name)
 
@@ -94,6 +100,7 @@ function createSuperMegaProger(name) {
   }
 }
 
+// создание объектов и вызов их методов
 const programmer = createProgrammer('Programmer')
 programmer.code()
 
