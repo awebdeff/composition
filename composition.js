@@ -49,6 +49,7 @@ function canReactAndVue({ name }) {
 }
 
 // расширение базового объекта с помощью доп. методов
+// применение КОМПОЗИЦИИ
 function createFrontend(name) {
   const programmer = createProgrammer(name)
 
