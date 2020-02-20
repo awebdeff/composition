@@ -35,6 +35,14 @@ function canPython({ name }) {
   }
 }
 
+function canReactAndVue({ name }) {
+  return {
+    react: () => console.log(`${name} is creating react app...`),
+    vue: () => console.log(`${name} is creating vue app...`)
+
+  }
+}
+
 function createFrontend(name) {
   const programmer = createProgrammer(name)
 
@@ -63,7 +71,7 @@ function createFullstack(name) {
   }
 }
 
-function createMegaproger(name) {
+function createMegaProger(name) {
   const programmer = createProgrammer(name)
 
   return {
@@ -71,6 +79,18 @@ function createMegaproger(name) {
     ...canAngular(programmer),
     ...canNodejs(programmer),
     ...canPython(programmer)
+  }
+}
+
+function createSuperMegaProger(name) {
+  const programmer = createProgrammer(name)
+
+  return {
+    ...programmer,
+    ...canAngular(programmer),
+    ...canNodejs(programmer),
+    ...canPython(programmer),
+    ...canReactAndVue(programmer)
   }
 }
 
@@ -90,8 +110,16 @@ fullstack.code()
 fullstack.angular()
 fullstack.nodejs()
 
-const megaproger = createMegaproger('Vasilisk')
+const megaproger = createMegaProger('Vasilisk')
 megaproger.code()
 megaproger.angular()
 megaproger.nodejs()
 megaproger.python()
+
+const supermegaproger = createSuperMegaProger('Tom')
+supermegaproger.code()
+supermegaproger.angular()
+supermegaproger.nodejs()
+supermegaproger.python()
+supermegaproger.react()
+supermegaproger.vue()
